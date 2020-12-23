@@ -1,0 +1,152 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background: #2c56af;
+    color: #e2dbdb;
+}
+
+.nav-options{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+}
+
+.box-title{
+    margin: 0 16px;
+}
+
+.menu i{
+    color: #ffff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.user{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.user-logo i{
+    font-size: 40px;
+    margin: 16px;
+}
+
+.user-details h6{
+    margin-top: 4px;
+}
+
+.menu-list{
+    position: absolute;
+    width: 200px;
+    height: 90vh;
+    background: #5f9ea0;
+    z-index: 2;
+}
+
+.menu-list li{
+    padding: 16px;
+}
+
+.menu-list a{
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+}
+
+.animate__fadeInLeft{
+    animation-duration: .5s;
+}
+
+/* 
+
+================================
+    COMPONENTES
+================================
+
+*/
+
+.content{
+    position: relative;
+    width: 90%;
+    margin: 40px auto;
+    /* border: 1px solid #000; */
+}
+
+.card-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card-details{
+    width: 210px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #dddde2;
+    border-radius: 6px;
+}
+
+.card-text h5{
+    margin-top: 6pxs;
+}
+
+.card-icon i{
+    font-size: 32px;
+}
+
+.graphic-content{
+    width: 50%;
+    margin: 48px auto;
+}
+
+.crud-tools{
+    position: absolute;
+    width: 52px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 30%;
+    left: 0;
+    /* background: #dddde2; */
+}
+
+.crud-tools i{
+    font-size: 40px;
+    color: #292828;
+}
+
+.list-results{
+    width: 80%;
+    margin: auto;
+}
+
+.content table{
+    width: 90%;
+    margin: 48px auto;
+}
+
+#td-title{
+    background: #2c56af;
+    padding: 16px;
+    color: #fff;
+}
+
+#campo{
+    padding: 8px;
+    background: #dddde2;
+}

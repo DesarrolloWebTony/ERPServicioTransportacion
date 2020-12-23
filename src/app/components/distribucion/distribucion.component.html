@@ -1,0 +1,77 @@
+
+<!-- <div class="content">
+    <p>distribucion works!</p>
+</div>
+
+
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+show = {{show}}
+<br>
+
+<div *ngIf="show">Text to show</div> -->
+
+<div class="content">
+    
+    <p>Distribucion works!</p>
+
+    <div class="card-box">
+
+        <div class="card-details">
+            <div class="card-text">
+                <p>Total<br>
+                    Convencionales</p>
+                <h5>Num</h5>
+            </div>
+            <div class="card-icon">
+                <i class='bx bx-package'></i>
+            </div>
+        </div>
+
+        <div class="card-details">
+            <div class="card-text">
+                <p>Total <br>
+                    express</p>
+                <h5>Num</h5>
+            </div>
+            <div class="card-icon">
+                <i class='bx bx-package'></i>
+            </div>
+        </div>
+    
+        <div class="card-details">
+            <div class="card-text">
+                <p>Categoria <br>
+                    top</p>
+                <h5>Num</h5>
+            </div>
+            <div class="card-icon">
+                <i class='bx bx-package'></i>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="graphic-content">
+        <div>
+          <div style="display: block">
+            <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+            </canvas>
+          </div>
+          <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+        </div>
+      </div>
+
+      <div class="crud-tools">
+        <i class='bx bxs-message-square-add'></i>
+        <i class='bx bxs-message-square-edit'></i>
+        <i class='bx bxs-file-find' ></i>
+        <i class='bx bxs-trash' ></i>
+      </div>
+
+
+</div>

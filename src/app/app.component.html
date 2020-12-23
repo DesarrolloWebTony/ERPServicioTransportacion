@@ -1,0 +1,31 @@
+<!-- <app-navbar></app-navbar> -->
+<nav>
+    <div class="nav-options">
+        <div class="menu">
+            <i class='bx bx-menu' (click)="verMenu = !verMenu"></i>        
+        </div>
+        <div class="box-title">
+            <h1>{{ rutaName }}</h1>
+        </div>
+    </div>
+
+    <div class="user">
+        <div class="user-details">
+            <h4>José</h4>
+            <h6>Opciones</h6>
+        </div>
+        <div class="user-logo">
+            <i class='bx bxs-user-circle'></i>
+        </div>
+    </div>
+</nav>
+
+<div *ngIf="verMenu" class="menu-list animate__animated animate__fadeInLeft">
+    <ul>
+        <li><a routerLink="Almacen" (click)="verMenu = !verMenu">Almacen</a></li>
+        <li><a routerLink="Logistica" (click)="verMenu = !verMenu">Logistica</a></li>
+        <li><a routerLink="Distribucion"(click)="verMenu = !verMenu">Distribucion</a></li>
+    </ul>
+</div>
+
+<router-outlet></router-outlet>
