@@ -25,4 +25,18 @@ export class AlmacenService {
                 }));
    }
 
+   getAlmacenesSolicitados(){
+     return this.http.get('http://localhost:3000/almacenesSolicitados')
+                .pipe(map( resp => {
+                      return resp['almacenes'];
+                }));
+   }
+
+   getProductosAlmacenados(){
+     return this.http.get('http://localhost:3000/productosAlmacenados')
+                .pipe(map(resp => {
+                  return resp['productos'];
+                }))
+   }
+
 }

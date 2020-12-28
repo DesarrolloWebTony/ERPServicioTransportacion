@@ -1,13 +1,13 @@
 <div class="content">
 
-    <p>almacen works!</p>
+    <!-- <p>almacen works!</p> -->
     <div class="card-box">
 
         <div class="card-details">
             <div class="card-text">
                 <p>Productos <br>
                     almacenados</p>
-                <h5>Num</h5>
+                <h5>{{ productosAlmacenados }}</h5>
             </div>
             <div class="card-icon">
                 <i class='bx bx-package'></i>
@@ -38,15 +38,31 @@
 
     </div>
 
+    <h2 style="text-align: center;">Productos mas solicitados</h2>
+
     <div class="graphic-content">
-        <div>
+        <!-- <div>
             <div style="display: block">
                 <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
                     [legend]="barChartLegend" [chartType]="barChartType">
                 </canvas>
             </div>
             <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
-        </div>
+        </div> -->
+        <ngx-charts-bar-vertical
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
     </div>
 
     <div class="crud-tools">
@@ -61,10 +77,10 @@
               <li *ngFor="let almacen of almacenes">{{ almacen.nombreProd }}</li>
           </ul>
       </div> -->
-
-    <h2>Productos sin mucho stock</h2>
+    
 
     <table>
+        <caption><h2>Productos sin mucho stock</h2></caption>
         <tr>
             <td id="td-title"><strong>Nombre</strong></td>
             <td id="td-title"><strong>Existencias</strong></td>
