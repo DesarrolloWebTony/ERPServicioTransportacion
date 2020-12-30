@@ -79,7 +79,7 @@ nav{
 .content{
     position: relative;
     width: 90%;
-    margin: 40px auto;
+    margin: 48px auto;
     /* border: 1px solid #000; */
 }
 
@@ -121,22 +121,29 @@ nav{
 } */
 
 .crud-tools{
-    position: absolute;
-    width: 52px;
-    min-height: 200px;
+    /* position: absolute; */
+    width: 30%; /*52*/
+    /* min-height: 200px; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-evenly;
     align-items: center;
-    top: 30%;
-    left: 0;
+    /* top: 30%;
+    left: 0; */
     /* background: #dddde2; */
+    margin: auto;
 }
 
 .crud-tools i{
     font-size: 40px;
     color: #292828;
-    padding: 16px 0px;
+    /* padding: 0px 16px; */
+    cursor: pointer;
+}
+
+.crud-tools a{
+    color: #292828;
+    text-decoration: none;
 }
 
 .list-results{
@@ -146,7 +153,7 @@ nav{
 
 .content table {
     width: 90%;
-    margin: 48px auto;
+    margin: 40px auto;
 }
 
 .content caption{
@@ -162,4 +169,17 @@ nav{
 #campo{
     padding: 8px;
     background: #dddde2;
+}
+
+.content form{
+    margin: 48px 0px;
+}
+
+.content input{
+    display: block;
+    padding: 8px;
+    margin: 8px;
+    width: 50%;
+    /* border:none; */
+    /* border-bottom: 1px solid #292828; */
 }

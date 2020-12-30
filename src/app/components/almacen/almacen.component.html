@@ -1,6 +1,5 @@
 <div class="content">
 
-    <!-- <p>almacen works!</p> -->
     <div class="card-box">
 
         <div class="card-details">
@@ -65,19 +64,11 @@
 </ngx-charts-bar-vertical>
     </div>
 
-    <div class="crud-tools">
-        <i class='bx bxs-message-square-add'></i>
-        <i class='bx bxs-message-square-edit'></i>
-        <i class='bx bxs-file-find'></i>
-        <i class='bx bxs-trash'></i>
-    </div>
-
     <!-- <div class="list-results">
           <ul>
               <li *ngFor="let almacen of almacenes">{{ almacen.nombreProd }}</li>
           </ul>
       </div> -->
-    
 
     <table>
         <caption><h2>Productos sin mucho stock</h2></caption>
@@ -95,5 +86,53 @@
             <td id="campo">{{ almacen.localizacion }}</td>
         </tr>
     </table>
+
+    <!-- <p>almacen works!</p> -->
+    <div class="crud-tools">
+        <a routerLink="FormAlmacen"><i class='bx bxs-message-square-add'></i></a>
+        <a routerLink="VerAlmacenes"><i class='bx bxs-message-square-edit'></i></a>
+        <a routerLink="VerAlmacenes"><i class='bx bxs-file-find'></i></a>
+        <a href=""><i class='bx bxs-trash'></i></a>
+    </div>
+    
+    <table>
+        <caption><h2>Productos almacenados</h2></caption>
+        <tr>
+            <td id="td-title"><strong>N°</strong></td>
+            <td id="td-title"><strong>ID</strong></td>
+            <td id="td-title"><strong>Codigo</strong></td>
+            <td id="td-title"><strong>Nombre</strong></td>
+            <td id="td-title"><strong>TiempoEn</strong></td>
+            <td id="td-title"><strong>Localizacion</strong></td>
+            <td id="td-title"><strong>%</strong></td>
+            <td id="td-title"><strong>Stock</strong></td>
+            <td id="td-title"><strong>Categoria</strong></td>
+            <td id="td-title"><strong>Proveedor</strong></td>
+            <td id="td-title"><strong>Controls</strong></td>
+        </tr>
+    
+        <tr *ngFor="let listalmacen of listaAlmacenes;let i=index">
+            <td id="campo">{{ i+1 }}</td>
+            <td id="campo">{{ listalmacen._id }}</td>
+            <td id="campo">{{ listalmacen.codigoProdAlmacen }}</td>
+            <td id="campo">{{ listalmacen.nombreProd }}</td>
+            <td id="campo">{{ listalmacen.tiempoEnAl }}</td>
+            <td id="campo">{{ listalmacen.localizacion }}</td>
+            <td id="campo">{{ listalmacen.porcentaje }}</td>
+            <td id="campo">{{ listalmacen.cantStock }}</td>
+            <td id="campo">{{ listalmacen.categoria }}</td>
+            <td id="campo">{{ listalmacen.proveedor }}</td>
+            <td id="campo">
+                <!-- (click)="capturarID(listalmacen)" -->
+                <!-- <i class='bx bxs-message-square-edit'></i> -->
+                <a [routerLink]="['FormAlmacen',listalmacen._id]"><i class='bx bxs-message-square-edit'></i></a>
+                <a href=""><i class='bx bxs-trash'></i></a>
+            </td>
+        </tr>
+    </table>
+
+
+    <router-outlet></router-outlet>
+
 
 </div>

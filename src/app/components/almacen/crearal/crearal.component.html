@@ -1,0 +1,22 @@
+<p> Crear nuevo usuario </p>
+<form (ngSubmit)="crearUsuario(f)" #f="ngForm">
+    <label>ID</label>
+    <input type="text" name="id" [(ngModel)]="id" disabled>
+    <label>Codigo</label>
+    <input type="text" name="codigoProdAlmacen" [(ngModel)]="almacen.codigoProdAlmacen" required>
+    <label>Nombre producto</label>
+    <input type="text" name="nombreProd" [(ngModel)]="almacen.nombreProd" required>
+    <label>Tiempo en Almacen</label>
+    <input type="text" name="tiempoEnAl" [(ngModel)]="almacen.tiempoEnAl" required>
+    <label>Localizacion</label>
+    <input type="text" name="localizacion" [(ngModel)]="almacen.localizacion" required>
+    <label>Porcentaje</label>
+    <input type="number" name="porcentaje" [(ngModel)]="almacen.porcentaje" required>
+    <label>Cantidad en stock</label>
+    <input type="number" name="cantStock" [(ngModel)]="almacen.cantStock" required>
+    <label>Categoria</label>
+    <input type="text" name="categoria" [(ngModel)]="almacen.categoria" required>
+    <label>Proveedor</label>
+    <input type="text" name="proveedor" [(ngModel)]="almacen.proveedor" required>
+    <button type="submit">Crear</button>
+</form>

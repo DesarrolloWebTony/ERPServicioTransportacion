@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { APP_ROUTING } from './app.routes'
 
@@ -12,13 +13,15 @@ import { DistribucionComponent } from './components/distribucion/distribucion.co
 
 import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CrearalComponent } from './components/almacen/crearal/crearal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlmacenComponent,
     LogisticaComponent,
-    DistribucionComponent
+    DistribucionComponent,
+    CrearalComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     ChartsModule,
     HttpClientModule,
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { AlmacenService } from '../../services/almacen.service';
 
@@ -25,6 +26,8 @@ export class AlmacenComponent implements OnInit{
   nuevoArrayCantidaProd: any[] = [];
 
   productosAlmacenados: string;
+
+  listaAlmacenes: any[] = [];
 
   pais = {
     name: "Germany",
@@ -87,7 +90,8 @@ export class AlmacenComponent implements OnInit{
 
 
 
-  constructor( private almacenService: AlmacenService ) {
+  constructor( private almacenService: AlmacenService,
+               private router : Router ) {
 
   }
 
@@ -154,7 +158,22 @@ export class AlmacenComponent implements OnInit{
             console.log(this.productosAlmacenados);
         });
 
+    this.almacenService.getAlmacenes()
+    .subscribe(( resp ):any =>{
+      console.log( resp );
+      this.listaAlmacenes = resp;
+    });
+
   }
+
+  // capturarID( obj:any ){
+  //   // console.log(i+1);
+  //   //console.log(almacen);
+  //   let idMongo = obj._id;
+  //   console.log(idMongo);
+  //   this.router.navigateByUrl('FormAlmacen');
+  // }
+
 
     // ==============================> GRAFICAS
   //   public barChartOptions: ChartOptions = {
