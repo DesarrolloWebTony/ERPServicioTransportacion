@@ -51,7 +51,10 @@ export class AlmacenService {
    }
 
    editarAlmacen(id:string, almacenData){
-     return this.http.put(`http://localhost:3000/almacen/:${id}`, almacenData)
+     return this.http.put(`http://localhost:3000/almacen/${id}`, almacenData)
    }
 
+   eliminarAlmacen(id:string){
+     return this.http.delete(`http://localhost:3000/almacen/${id}`)
+   }
 }

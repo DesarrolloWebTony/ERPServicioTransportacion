@@ -221,5 +221,13 @@ export class AlmacenComponent implements OnInit{
 
   // =============================================
 
+  eliminarAlmacen(id:string){
+    console.log(id);
+    this.almacenService.eliminarAlmacen(id)
+        .subscribe((resp)=>{
+          console.log("borrado");
+            console.log(resp);
+        });
+  }
 
 }

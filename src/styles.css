@@ -171,6 +171,15 @@ nav{
     background: #dddde2;
 }
 
+.content table i{
+    cursor: pointer;
+}
+
+.content table a{
+    color: #292828;
+    text-decoration: none;
+}
+
 .content form{
     margin: 48px 0px;
 }

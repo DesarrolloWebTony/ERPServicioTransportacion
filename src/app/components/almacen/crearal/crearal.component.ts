@@ -47,7 +47,12 @@ export class CrearalComponent implements OnInit {
 
     if(this.id){
       console.log('listo para actualizar');
-      
+
+      this.almacenService.editarAlmacen(this.id, this.almacen)
+          .subscribe((resp)=>{
+            console.log('actualizar resp');
+            console.log(resp);
+          });
     }
 
     else{
