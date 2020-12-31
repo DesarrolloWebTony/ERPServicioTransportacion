@@ -71,7 +71,7 @@ export class CrearalComponent implements OnInit {
       // console.log(almacenData);
       // console.log( form );
   
-      this.router.navigateByUrl('Almacen');
+      this.router.navigateByUrl('Mensaje');
     }
   }
 

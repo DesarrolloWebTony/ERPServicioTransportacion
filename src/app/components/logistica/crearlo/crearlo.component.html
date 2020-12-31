@@ -1,0 +1,21 @@
+<p>Crear nueva ruta</p>
+<form (ngSubmit)="crearRuta(f)" #f="ngForm">
+    <label>ID</label>
+    <input type="text" name="id" [(ngModel)]="id" disabled> 
+    <label>Codigo</label>
+    <input type="text" name="codigoRuta" [(ngModel)]="logistica.codigoRuta" required>
+    <label>Ruta</label>
+    <input type="text" name="ruta" [(ngModel)]="logistica.ruta" required>
+    <label>Tipo vehiculo</label>
+    <input type="text" name="tipoVehiculo" [(ngModel)]="logistica.tipoVehiculo" required>
+    <label>Numero Articulos</label>
+    <input type="number" name="numArticulos" [(ngModel)]="logistica.numArticulos" required>
+    <label>Tiempo estimado</label>
+    <input type="text" name="tiempoEstimado" [(ngModel)]="logistica.tiempoEstimado" required>
+    <label>Fecha salida</label>
+    <input type="text" name="fechaSalida" [(ngModel)]="logistica.fechaSalida" required>
+    <label>Destino</label>
+    <input type="text" name="destino" [(ngModel)]="logistica.destino" required>
+
+    <button type="submit">Crear</button>
+</form>

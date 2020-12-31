@@ -14,6 +14,8 @@ import { DistribucionComponent } from './components/distribucion/distribucion.co
 import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CrearalComponent } from './components/almacen/crearal/crearal.component';
+import { MessageComponent } from './components/message/message.component';
+import { CrearloComponent } from './components/logistica/crearlo/crearlo.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CrearalComponent } from './components/almacen/crearal/crearal.component
     AlmacenComponent,
     LogisticaComponent,
     DistribucionComponent,
-    CrearalComponent
+    CrearalComponent,
+    MessageComponent,
+    CrearloComponent
   ],
   imports: [
     BrowserModule,

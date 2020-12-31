@@ -17,7 +17,7 @@
             <div class="card-text">
                 <p>Total <br>
                     devoluciones</p>
-                <h5>Num</h5>
+                <h5>{{countDevoluciones}}</h5>
             </div>
             <div class="card-icon">
                 <i class='bx bx-package'></i>
@@ -26,9 +26,9 @@
 
         <div class="card-details">
             <div class="card-text">
-                <p>Categoria <br>
-                    top</p>
-                <h5>Num</h5>
+                <p>Total <br>
+                    Contenedores</p>
+                <h5>{{ countContenedores }}</h5>
             </div>
             <div class="card-icon">
                 <i class='bx bx-package'></i>
@@ -71,12 +71,12 @@
       </div> -->
 
     <table>
-        <caption><h2>Productos sin mucho stock</h2></caption>
+        <caption><h2>Sin mucho stock</h2></caption>
         <tr>
-            <td id="td-title"><strong>Nombre</strong></td>
-            <td id="td-title"><strong>Existencias</strong></td>
-            <td id="td-title"><strong>Proveedor</strong></td>
-            <td id="td-title"><strong>Ubicación</strong></td>
+            <td id="table-stock"><strong>Nombre</strong></td>
+            <td id="table-stock"><strong>Existencias</strong></td>
+            <td id="table-stock"><strong>Proveedor</strong></td>
+            <td id="table-stock"><strong>Ubicación</strong></td>
         </tr>
 
         <tr *ngFor="let almacen of almacenes">
@@ -87,15 +87,7 @@
         </tr>
     </table>
 
-    <!-- <p>almacen works!</p> -->
-    <div class="crud-tools">
-        <a routerLink="FormAlmacen"><i class='bx bxs-message-square-add'></i></a>
-        <a routerLink="VerAlmacenes"><i class='bx bxs-message-square-edit'></i></a>
-        <a routerLink="VerAlmacenes"><i class='bx bxs-file-find'></i></a>
-        <a href=""><i class='bx bxs-trash'></i></a>
-    </div>
-    
-    <table>
+    <table *ngIf="verAlmacenes">
         <caption><h2>Productos almacenados</h2></caption>
         <tr>
             <td id="td-title"><strong>N°</strong></td>
@@ -103,7 +95,7 @@
             <td id="td-title"><strong>Codigo</strong></td>
             <td id="td-title"><strong>Nombre</strong></td>
             <td id="td-title"><strong>TiempoEn</strong></td>
-            <td id="td-title"><strong>Localizacion</strong></td>
+            <td id="td-title"><strong>Ubicacion</strong></td>
             <td id="td-title"><strong>%</strong></td>
             <td id="td-title"><strong>Stock</strong></td>
             <td id="td-title"><strong>Categoria</strong></td>
@@ -113,7 +105,7 @@
     
         <tr *ngFor="let listalmacen of listaAlmacenes;let i=index">
             <td id="campo">{{ i+1 }}</td>
-            <td id="campo">{{ listalmacen._id }}</td>
+            <td id="campo" id="limitarCelda">{{ listalmacen._id }}</td>
             <td id="campo">{{ listalmacen.codigoProdAlmacen }}</td>
             <td id="campo">{{ listalmacen.nombreProd }}</td>
             <td id="campo">{{ listalmacen.tiempoEnAl }}</td>
@@ -131,8 +123,15 @@
         </tr>
     </table>
 
-
     <router-outlet></router-outlet>
+    
+    <div class="crud-tools">
+        <a routerLink="FormAlmacen"><i class='bx bxs-message-square-add'></i></a>
+        <i class='bx bxs-file-find' (click)="verAlmacenes = !verAlmacenes"></i>
+        <!-- <a routerLink="VerAlmacenes"><i class='bx bxs-message-square-edit'></i></a> -->
+        <!-- <a href=""><i class='bx bxs-trash'></i></a> -->
+    </div>
+
 
 
 </div>

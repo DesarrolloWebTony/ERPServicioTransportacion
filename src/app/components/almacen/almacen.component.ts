@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { AlmacenService } from '../../services/almacen.service';
+import { ContenedorService } from '../../services/contenedor.service';
+import { DevolucionService } from '../../services/devolucion.service';
 
 // Librerias
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
@@ -28,6 +30,12 @@ export class AlmacenComponent implements OnInit{
   productosAlmacenados: string;
 
   listaAlmacenes: any[] = [];
+
+  verAlmacenes = false;
+
+  countContenedores: number;
+
+  countDevoluciones: number;
 
   pais = {
     name: "Germany",
@@ -57,7 +65,7 @@ export class AlmacenComponent implements OnInit{
 
   view: any[] = [600, 400];
 
-  // options
+  // options table
   showXAxis = true;
   showYAxis = true;
   gradient = false;
@@ -91,6 +99,8 @@ export class AlmacenComponent implements OnInit{
 
 
   constructor( private almacenService: AlmacenService,
+               private contenedorService: ContenedorService,
+               private devolucionService : DevolucionService,
                private router : Router ) {
 
   }
@@ -163,6 +173,18 @@ export class AlmacenComponent implements OnInit{
       console.log( resp );
       this.listaAlmacenes = resp;
     });
+
+    this.contenedorService.getConteoContenedores()
+        .subscribe(( resp )=>{
+          console.log( "Contador" + resp );
+          this.countContenedores = resp;
+        });
+    
+    this.devolucionService.getContarDevoluciones()
+    .subscribe(( resp )=>{
+      console.log( "Contador" + resp );
+      this.countDevoluciones = resp;
+    });    
 
   }
 
