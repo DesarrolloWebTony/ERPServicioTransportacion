@@ -21,4 +21,19 @@ export class LogisticaService {
     }));
   }
 
+  getRuta(id:string){
+     return this.http.get(`http://localhost:3000/logistica/${id}`)
+                     .pipe(map( resp => {
+                    return resp['logistica'];
+                }));
+  }
+
+  editarLogistica(id:string, logisticaData){
+    return this.http.put(`http://localhost:3000/logistica/${id}`, logisticaData)
+  }
+
+  eliminarAlmacen(id:string){
+    return this.http.delete(`http://localhost:3000/logistica/${id}`)
+  }
+
 }

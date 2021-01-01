@@ -54,6 +54,7 @@
             <td id="td-title"><strong>Estimado</strong></td>
             <td id="td-title"><strong>Salida</strong></td>
             <td id="td-title"><strong>Destino</strong></td>
+            <td id="td-title"><strong>Controls</strong></td>
         </tr>
     
         <tr *ngFor="let listRuta of listaRutas;let i=index">
@@ -66,6 +67,10 @@
             <td id="campo">{{ listRuta.tiempoEstimado }}</td>
             <td id="campo">{{ listRuta.fechaSalida }}</td>
             <td id="campo">{{ listRuta.destino }}</td>
+            <td id="campo">
+                <a [routerLink]="['FormLogistica',listRuta._id]"><i class='bx bxs-message-square-edit'></i></a>
+                <i class='bx bxs-trash' (click)="eliminarAlmacen(listRuta._id)"></i>
+            </td>
         </tr>
     </table>
     
@@ -74,8 +79,6 @@
     <div class="crud-tools">
         <a routerLink="FormLogistica"><i class='bx bxs-message-square-add'></i></a>
         <i class='bx bxs-file-find' (click)="verRutas = !verRutas"></i>
-        <!-- <a routerLink="VerAlmacenes"><i class='bx bxs-message-square-edit'></i></a> -->
-        <!-- <a href=""><i class='bx bxs-trash'></i></a> -->
     </div>
 
 </div>

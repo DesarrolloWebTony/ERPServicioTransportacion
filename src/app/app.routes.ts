@@ -9,7 +9,8 @@ import { MessageComponent } from './components/message/message.component';
 
 const APP_ROUTES:Routes = [
     { path:'Logistica', component: LogisticaComponent, children:[
-        {path:'FormLogistica', component: CrearloComponent}
+        { path:'FormLogistica', component: CrearloComponent },
+        { path:'FormLogistica/:id', component: CrearloComponent }
     ]},
     { path:'Almacen', component: AlmacenComponent, children:[
         { path:'FormAlmacen', component: CrearalComponent },

@@ -12,7 +12,7 @@ export class LogisticaComponent implements OnInit {
 
   listaRutas: any[] = [];
 
-  verRutas: false;
+  verRutas: boolean = false;
 
   constructor( private logisticaService : LogisticaService ) { }
 
@@ -24,5 +24,13 @@ export class LogisticaComponent implements OnInit {
     });
   }
 
- 
+  eliminarAlmacen(id:string){
+    console.log(id);
+    this.logisticaService.eliminarAlmacen(id)
+        .subscribe((resp)=>{
+          console.log("borrado");
+          console.log(resp);
+        });
+  }
+
 }
