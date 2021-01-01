@@ -7,7 +7,7 @@
             <div class="card-text">
                 <p>Pedidos<br>
                     trasladados</p>
-                <h5>Num</h5>
+                <h5>{{hechos.length}}</h5>
             </div>
             <div class="card-icon">
                 <i class='bx bx-package'></i>
@@ -18,7 +18,7 @@
             <div class="card-text">
                 <p>Pedidos en<br>
                     ruta</p>
-                <h5>Num</h5>
+                <h5>{{ enRuta.length }}</h5>
             </div>
             <div class="card-icon">
                 <i class='bx bx-package'></i>
@@ -38,9 +38,24 @@
 
     </div>
 
-    <div class="graphic-content">
+    <h2>Viajes por destino</h2>
 
-      </div>
+    <div class="graphic-content">
+        <ngx-charts-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single"
+            [gradient]="gradient"
+            [legend]="showLegend"
+            [legendPosition]="legendPosition"
+            [labels]="showLabels"
+            [doughnut]="isDoughnut"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+            >
+        </ngx-charts-pie-chart>
+    </div>
 
       <table *ngIf="verRutas">
         <caption><h2>Rutas</h2></caption>
@@ -54,6 +69,7 @@
             <td id="td-title"><strong>Estimado</strong></td>
             <td id="td-title"><strong>Salida</strong></td>
             <td id="td-title"><strong>Destino</strong></td>
+            <td id="td-title"><strong>Entregado</strong></td>
             <td id="td-title"><strong>Controls</strong></td>
         </tr>
     
@@ -67,6 +83,7 @@
             <td id="campo">{{ listRuta.tiempoEstimado }}</td>
             <td id="campo">{{ listRuta.fechaSalida }}</td>
             <td id="campo">{{ listRuta.destino }}</td>
+            <td id="campo">{{ listRuta.entregado }}</td>
             <td id="campo">
                 <a [routerLink]="['FormLogistica',listRuta._id]"><i class='bx bxs-message-square-edit'></i></a>
                 <i class='bx bxs-trash' (click)="eliminarAlmacen(listRuta._id)"></i>

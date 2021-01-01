@@ -13,9 +13,11 @@
     <label>Tiempo estimado</label>
     <input type="text" name="tiempoEstimado" [(ngModel)]="logistica.tiempoEstimado" required>
     <label>Fecha salida</label>
-    <input type="text" name="fechaSalida" [(ngModel)]="logistica.fechaSalida" required>
+    <input type="text" name="fechaSalida" [(ngModel)]="logistica.fechaSalida">
     <label>Destino</label>
     <input type="text" name="destino" [(ngModel)]="logistica.destino" required>
+    <label>Entregado</label>
+    <input type="text" name="entregado" [(ngModel)]="logistica.entregado" required>
 
     <button type="submit">Crear</button>
 </form>

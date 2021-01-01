@@ -6,4 +6,5 @@ export class Logistica {
     tiempoEstimado:string;
     fechaSalida: string;
     destino: string;
+    entregado: boolean;
 }

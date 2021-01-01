@@ -28,12 +28,35 @@ export class LogisticaService {
                 }));
   }
 
+  getEnRuta(){
+     return this.http.get(`http://localhost:3000/enRuta`)
+                     .pipe(map( resp => {
+                    return resp['rutas'];
+                }));
+  }
+
+  getDestinosSolicitados(){
+    return this.http.get(`http://localhost:3000/destinosSolicitados`)
+                    .pipe(map( resp => {
+                   return resp['rutas'];
+               }));
+  }
+
+  getPedidosHechos(){
+    return this.http.get(`http://localhost:3000/pedidosHechos`)
+                    .pipe(map( resp => {
+                  return resp['rutas'];
+              }));
+  }
+
   editarLogistica(id:string, logisticaData){
-    return this.http.put(`http://localhost:3000/logistica/${id}`, logisticaData)
+    return this.http.put(`http://localhost:3000/logistica/${id}`, logisticaData);
   }
 
   eliminarAlmacen(id:string){
-    return this.http.delete(`http://localhost:3000/logistica/${id}`)
+    return this.http.delete(`http://localhost:3000/logistica/${id}`);
   }
+
+
 
 }
