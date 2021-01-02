@@ -1,0 +1,26 @@
+<p>Crear nueva distribucion</p>
+<form (ngSubmit)="crearDistribucion(f)" #f="ngForm">
+    <!-- <label>ID</label>
+    <input type="text" name="id" [(ngModel)]="id" disabled>  -->
+    <label>Codigo</label>
+    <input type="text" name="codigoDistribucion" [(ngModel)]="distribucion.codigoDistribucion" required>
+    <label>Remitente</label>
+    <input type="text" name="nombreRemi" [(ngModel)]="distribucion.nombreRemi" required>
+    <label>Emisor</label>
+    <input type="text" name="nombreEmi" [(ngModel)]="distribucion.nombreEmi" required>
+    <label>Fecha encargo</label>
+    <input type="text" name="fechaEncargo" [(ngModel)]="distribucion.fechaEncargo" required>
+    <label>Fecha salida</label>
+    <input type="text" name="fechaSalida" [(ngModel)]="distribucion.fechaSalida">
+    <label>Numero Articulos</label>
+    <input type="number" name="numArticulos" [(ngModel)]="distribucion.numArticulos" required>
+    <label>Express</label>
+    <input type="text" name="express" [(ngModel)]="distribucion.express" required>
+    <label>Estado Envio</label>
+    <input type="text" name="estadoDeEnvio" [(ngModel)]="distribucion.estadoDeEnvio" required>
+    <label>Descripción</label>
+    <input type="text" name="descrip" [(ngModel)]="distribucion.descrip" required>
+
+
+    <button type="submit">Crear</button>
+</form>

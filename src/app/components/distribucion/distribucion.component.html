@@ -52,26 +52,48 @@ show = {{show}}
     </div>
 
     <div class="graphic-content">
-        <div>
-          <div style="display: block">
-            <canvas baseChart
-              [datasets]="barChartData"
-              [labels]="barChartLabels"
-              [options]="barChartOptions"
-              [legend]="barChartLegend"
-              [chartType]="barChartType">
-            </canvas>
-          </div>
-          <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
-        </div>
-      </div>
-
-      <div class="crud-tools">
-        <i class='bx bxs-message-square-add'></i>
-        <i class='bx bxs-message-square-edit'></i>
-        <i class='bx bxs-file-find' ></i>
-        <i class='bx bxs-trash' ></i>
-      </div>
 
 
-</div>
+    </div>
+
+    <table *ngIf="verDistribuciones">
+        <caption><h2>Rutas</h2></caption>
+        <tr>
+            <td id="td-title"><strong>N°</strong></td>
+            <td id="td-title"><strong>ID</strong></td>
+            <td id="td-title"><strong>Codigo</strong></td>
+            <td id="td-title"><strong>nombreRemi</strong></td>
+            <td id="td-title"><strong>nombreEmi</strong></td>
+            <td id="td-title"><strong>fechaEncargo</strong></td>
+            <td id="td-title"><strong>fechaSalida</strong></td>
+            <td id="td-title"><strong>numArticulos</strong></td>
+            <td id="td-title"><strong>Express</strong></td>
+            <td id="td-title"><strong>Estado</strong></td>
+            <td id="td-title"><strong>Controls</strong></td>
+        </tr>
+    
+        <tr *ngFor="let listDistribucion of listaDistribuciones;let i=index">
+            <td id="campo">{{ i+1 }}</td>
+            <td id="campo" id="limitarCelda">{{ listDistribucion._id }}</td>
+            <td id="campo">{{ listDistribucion.codigoDistribucion }}</td>
+            <td id="campo">{{ listDistribucion.nombreRemi }}</td>
+            <td id="campo">{{ listDistribucion.nombreEmi }}</td>
+            <td id="campo">{{ listDistribucion.fechaEncargo }}</td>
+            <td id="campo">{{ listDistribucion.fechaSalida }}</td>
+            <td id="campo">{{ listDistribucion.numArticulos }}</td>
+            <td id="campo">{{ listDistribucion.express }}</td>
+            <td id="campo">{{ listDistribucion.estadoDeEnvio }}</td>
+            <td id="campo">
+                <a [routerLink]="['FormDistribucion',listDistribucion._id]"><i class='bx bxs-message-square-edit'></i></a>
+                <i class='bx bxs-trash' (click)="eliminarDistribucion(listDistribucion._id)"></i>
+            </td>
+        </tr>
+    </table>
+
+
+    <router-outlet></router-outlet>
+
+    <div class="crud-tools">
+        <a routerLink="FormDistribucion"><i class='bx bxs-message-square-add'></i></a>
+        <i class='bx bxs-file-find' (click)="verDistribuciones = !verDistribuciones"></i>
+    </div>

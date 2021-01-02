@@ -1,10 +1,11 @@
 import { RouterModule, Routes} from '@angular/router';
 
 import { AlmacenComponent } from './components/almacen/almacen.component';
+import { CrearalComponent } from './components/almacen/crearal/crearal.component'
 import { LogisticaComponent } from './components/logistica/logistica.component';
 import { CrearloComponent } from './components/logistica/crearlo/crearlo.component';
 import { DistribucionComponent } from './components/distribucion/distribucion.component';
-import { CrearalComponent } from './components/almacen/crearal/crearal.component'
+import { CreardiComponent } from './components/distribucion/creardi/creardi.component';
 import { MessageComponent } from './components/message/message.component';
 
 const APP_ROUTES:Routes = [
@@ -16,7 +17,10 @@ const APP_ROUTES:Routes = [
         { path:'FormAlmacen', component: CrearalComponent },
         { path:'FormAlmacen/:id', component: CrearalComponent },
     ]},
-    { path:'Distribucion', component: DistribucionComponent},
+    { path:'Distribucion', component: DistribucionComponent, children:[
+        { path:'FormDistribucion', component: CreardiComponent },
+        { path:'FormDistribucion/:id', component: CreardiComponent },
+    ]},
     { path:'Mensaje', component: MessageComponent},
     { path:'**', pathMatch:'full', redirectTo:'Almacen'}
 ]
