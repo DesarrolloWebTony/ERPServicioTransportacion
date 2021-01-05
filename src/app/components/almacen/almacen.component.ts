@@ -27,8 +27,10 @@ export class AlmacenComponent implements OnInit{
   nuevoArrayProductos: any[] = [];
   nuevoArrayCantidaProd: any[] = [];
 
-  productosAlmacenados: string;
-
+  productosAlmacenados: any[] = [];
+  nombreCategoria: any [] = [];
+  totalProductosAlmacenados: number;
+  
   listaAlmacenes: any[] = [];
 
   verAlmacenes = false;
@@ -56,8 +58,9 @@ export class AlmacenComponent implements OnInit{
 
 
   single: any[] = [];
+  singleCircular: any[] = [];
 
-  // options table
+  // options table barras
   showXAxis = true;
   showYAxis = true;
   gradient = false;
@@ -65,9 +68,18 @@ export class AlmacenComponent implements OnInit{
   showXAxisLabel = true;
   xAxisLabel = 'Producto';
   showYAxisLabel = true;
-  yAxisLabel = "Total de Piezas";
+  yAxisLabel = "Piezas";
 
   colorScheme = 'nightLights';
+
+  //options table circular
+    gradient2: boolean = false;
+    showLegend2: boolean = true;
+    showLabels: boolean = true;
+    isDoughnut: boolean = false;
+    legendPosition: string = 'below';
+  
+    colorScheme2 = 'cool';
 
 
   onSelect(event) {
@@ -127,21 +139,60 @@ export class AlmacenComponent implements OnInit{
         {
           name: this.nuevoArrayProductos[2],
           value: this.nuevoArrayCantidaProd[2]
+        },
+        {
+          name: this.nuevoArrayProductos[3],
+          value: this.nuevoArrayCantidaProd[3]
         }
-        // {
-        //   name: this.nuevoArrayProductos[3],
-        //   value: this.nuevoArrayCantidaProd[3]
-        // }
       ];
 
     });
   
     this.almacenService.getProductosAlmacenados()
         .subscribe((resp):any => {
+          console.log('productos almacenados');
             console.log(resp);
-            this.productosAlmacenados = resp[0].num_productos;
+
+            for (let i in resp){
+              this.productosAlmacenados[i] = resp[i].num_productos;
+              this.nombreCategoria[i] = resp[i]._id;
+            }
+
+            console.log('numero productos almacenados');
             console.log(this.productosAlmacenados);
-        });
+            console.log(this.nombreCategoria);
+            this.totalProductosAlmacenados = this.productosAlmacenados.reduce((a, b) => a + b, 0)
+        
+            this.singleCircular = [
+              {
+                name: this.nombreCategoria[0],
+                value: this.productosAlmacenados[0]
+              },
+              {
+                name: this.nombreCategoria[1],
+                value: this.productosAlmacenados[1]
+              },
+              {
+                name: this.nombreCategoria[2],
+                value: this.productosAlmacenados[2]
+              },
+              {
+                name: this.nombreCategoria[3],
+                value: this.productosAlmacenados[3]
+              },
+              {
+                name: this.nombreCategoria[4],
+                value: this.productosAlmacenados[4]
+              },
+              {
+                name: this.nombreCategoria[5],
+                value: this.productosAlmacenados[5]
+              }
+            ];
+            console.log('siongle circular');
+            console.log(this.singleCircular);
+        
+          });
 
     this.almacenService.getAlmacenes()
     .subscribe(( resp ):any =>{

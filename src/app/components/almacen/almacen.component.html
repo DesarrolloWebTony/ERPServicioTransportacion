@@ -5,7 +5,7 @@
             <div class="card-text">
                 <p>Productos <br>
                     almacenados</p>
-                <h5>{{ productosAlmacenados }}</h5>
+                <h5>{{ totalProductosAlmacenados }}</h5>
             </div>
             <div class="card-icon">
                 <i class='bx bx-package'></i>
@@ -36,10 +36,11 @@
 
     </div>
 
-    <h2 class="title">Productos mas solicitados</h2>
+    <h2 class="title">Mas solicitados</h2>
 
-    <div class="graphic-content">
-        <ngx-charts-bar-vertical
+    <div class="graficas">
+        <div class="grafica1">
+            <ngx-charts-bar-vertical
             [scheme]="colorScheme"
             [results]="single"
             [gradient]="gradient"
@@ -51,8 +52,28 @@
             [xAxisLabel]="xAxisLabel"
             [yAxisLabel]="yAxisLabel"
             (select)="onSelect($event)">
-        </ngx-charts-bar-vertical>
+            </ngx-charts-bar-vertical>
+        </div>
+        <div class="grafica2">
+            <ngx-charts-pie-chart
+            [scheme]="colorScheme2"
+            [results]="singleCircular"
+            [gradient]="gradient2"
+            [legend]="showLegend2"
+            [labels]="showLabels"
+            [doughnut]="isDoughnut"
+            >
+            </ngx-charts-pie-chart>
+        <!-- 
+            pone la leyenda de manera vertical
+            [legendPosition]="legendPosition"
+        metos omitidos en el componenete 
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)" -->
+        </div>
     </div>
+
 
     <!-- <div class="list-results">
           <ul>
@@ -81,7 +102,7 @@
         <caption><h2 class="title">Productos almacenados</h2></caption>
         <tr>
             <td id="td-title"><strong>N°</strong></td>
-            <td id="td-title"><strong>ID</strong></td>
+            <!-- <td id="td-title"><strong>ID</strong></td> -->
             <td id="td-title"><strong>Codigo</strong></td>
             <td id="td-title"><strong>Nombre</strong></td>
             <td id="td-title"><strong>TiempoEn</strong></td>
@@ -95,7 +116,7 @@
     
         <tr *ngFor="let listalmacen of listaAlmacenes;let i=index">
             <td id="campo">{{ i+1 }}</td>
-            <td id="campo" id="limitarCelda">{{ listalmacen._id }}</td>
+            <td id="campo" id="limitarCelda" style="display: none;">{{ listalmacen._id }}</td>
             <td id="campo">{{ listalmacen.codigoProdAlmacen }}</td>
             <td id="campo">{{ listalmacen.nombreProd }}</td>
             <td id="campo">{{ listalmacen.tiempoEnAl }}</td>
