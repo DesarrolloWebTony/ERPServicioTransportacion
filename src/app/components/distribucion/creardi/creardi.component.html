@@ -1,7 +1,7 @@
-<p>Crear nueva distribucion</p>
+<p class="subtitle">Crear nueva distribucion</p>
 <form (ngSubmit)="crearDistribucion(f)" #f="ngForm">
-    <!-- <label>ID</label>
-    <input type="text" name="id" [(ngModel)]="id" disabled>  -->
+    <label>ID</label>
+    <input type="text" name="id" [(ngModel)]="id" disabled> 
     <label>Codigo</label>
     <input type="text" name="codigoDistribucion" [(ngModel)]="distribucion.codigoDistribucion" required>
     <label>Remitente</label>
@@ -15,7 +15,15 @@
     <label>Numero Articulos</label>
     <input type="number" name="numArticulos" [(ngModel)]="distribucion.numArticulos" required>
     <label>Express</label>
-    <input type="text" name="express" [(ngModel)]="distribucion.express" required>
+
+    <div class="express-box">
+    <input type="radio" name="express" id="si" value="true" [(ngModel)]="distribucion.express" required>
+    <label for="si">SI</label>
+    <input type="radio" name="express" id="no" value="false" [(ngModel)]="distribucion.express" required>
+    <label for="no">NO</label>
+    <!-- <input type="text" name="express" [(ngModel)]="distribucion.express" required> -->
+    </div>
+    
     <label>Estado Envio</label>
     <input type="text" name="estadoDeEnvio" [(ngModel)]="distribucion.estadoDeEnvio" required>
     <label>Descripción</label>

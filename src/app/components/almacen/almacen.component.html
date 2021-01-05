@@ -1,7 +1,6 @@
 <div class="content">
 
     <div class="card-box">
-
         <div class="card-details">
             <div class="card-text">
                 <p>Productos <br>
@@ -17,10 +16,10 @@
             <div class="card-text">
                 <p>Total <br>
                     devoluciones</p>
-                <h5>{{countDevoluciones}}</h5>
+                <h5 style="color: darkred;">{{countDevoluciones}}</h5>
             </div>
             <div class="card-icon">
-                <i class='bx bx-package'></i>
+                <i class='bx bx-dislike'></i>
             </div>
         </div>
 
@@ -31,37 +30,28 @@
                 <h5>{{ countContenedores }}</h5>
             </div>
             <div class="card-icon">
-                <i class='bx bx-package'></i>
+                <i class='bx bx-cuboid'></i>
             </div>
         </div>
 
     </div>
 
-    <h2 style="text-align: center;">Productos mas solicitados</h2>
+    <h2 class="title">Productos mas solicitados</h2>
 
     <div class="graphic-content">
-        <!-- <div>
-            <div style="display: block">
-                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                    [legend]="barChartLegend" [chartType]="barChartType">
-                </canvas>
-            </div>
-            <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
-        </div> -->
         <ngx-charts-bar-vertical
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="single"
-  [gradient]="gradient"
-  [xAxis]="showXAxis"
-  [yAxis]="showYAxis"
-  [legend]="showLegend"
-  [showXAxisLabel]="showXAxisLabel"
-  [showYAxisLabel]="showYAxisLabel"
-  [xAxisLabel]="xAxisLabel"
-  [yAxisLabel]="yAxisLabel"
-  (select)="onSelect($event)">
-</ngx-charts-bar-vertical>
+            [scheme]="colorScheme"
+            [results]="single"
+            [gradient]="gradient"
+            [xAxis]="showXAxis"
+            [yAxis]="showYAxis"
+            [legend]="showLegend"
+            [showXAxisLabel]="showXAxisLabel"
+            [showYAxisLabel]="showYAxisLabel"
+            [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel"
+            (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
     </div>
 
     <!-- <div class="list-results">
@@ -71,7 +61,7 @@
       </div> -->
 
     <table>
-        <caption><h2>Sin mucho stock</h2></caption>
+        <caption><h2 class="title">Sin mucho stock</h2></caption>
         <tr>
             <td id="table-stock"><strong>Nombre</strong></td>
             <td id="table-stock"><strong>Existencias</strong></td>
@@ -88,7 +78,7 @@
     </table>
 
     <table *ngIf="verAlmacenes">
-        <caption><h2>Productos almacenados</h2></caption>
+        <caption><h2 class="title">Productos almacenados</h2></caption>
         <tr>
             <td id="td-title"><strong>N°</strong></td>
             <td id="td-title"><strong>ID</strong></td>
@@ -123,10 +113,10 @@
         </tr>
     </table>
 
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="verForm"></router-outlet>
     
     <div class="crud-tools">
-        <a routerLink="FormAlmacen"><i class='bx bxs-message-square-add'></i></a>
+        <a routerLink="FormAlmacen"><i class='bx bxs-message-square-edit' (click)="verForm = !verForm"></i></a>
         <i class='bx bxs-file-find' (click)="verAlmacenes = !verAlmacenes"></i>
         <!-- <a routerLink="VerAlmacenes"><i class='bx bxs-message-square-edit'></i></a> -->
         <!-- <a href=""><i class='bx bxs-trash'></i></a> -->

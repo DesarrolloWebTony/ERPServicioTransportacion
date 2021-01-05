@@ -3,6 +3,12 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    letter-spacing: 1.4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background: #f1eeee;
 }
 
 nav{
@@ -50,18 +56,33 @@ nav{
     position: absolute;
     width: 200px;
     height: 90vh;
-    background: #5f9ea0;
+    background: #264b9c;
     z-index: 2;
+}
+
+.menu-list ul{
+    margin: 16px 0px;
 }
 
 .menu-list li{
     padding: 16px;
+    font-size: 22px;
 }
 
 .menu-list a{
     text-decoration: none;
     color: #fff;
-    padding: 8px;
+    padding: 10px;
+}
+
+.title{
+    text-align: center;
+    padding: 32px 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.subtitle{
+    font-size: 24px;
 }
 
 .animate__fadeInLeft{
@@ -90,35 +111,34 @@ nav{
 }
 
 .card-details{
-    width: 210px;
-    height: 80px;
-    margin: 48px 0px;
+    width: 230px;
+    height: 100px;
+    /* margin: 48px 0px; */
+    margin-bottom: 32px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: #dddde2;
+    background: #d2d2d8; /*dddde2*/
     border-radius: 6px;
 }
 
 .card-text h5{
-    margin-top: 6pxs;
+    margin-top: 6px;
+    font-size: 22px;
 }
 
 .card-icon i{
-    font-size: 32px;
+    font-size: 36px;
 }
 
 .graphic-content{
-    width: 55%;
-    /* overflow: hidden; */
-    margin: 48px auto;
-    /* border: 1px solid #000; */
+    width: 60%;
+    height: 500px;
+    margin: 40px auto;
+    /* border: 1px solid #000;
+    background: #000;
+    color: #fff; */
 }
-
-/* .tabla-custom{
-    width: 100%;
-    height: 100%;
-} */
 
 .crud-tools{
     /* position: absolute; */
@@ -131,7 +151,7 @@ nav{
     /* top: 30%;
     left: 0; */
     /* background: #dddde2; */
-    margin: auto;
+    margin: 56px auto;
 }
 
 .crud-tools i{
@@ -153,17 +173,17 @@ nav{
 
 .content table {
     width: 90%;
-    margin: 40px auto;
+    margin: 48px auto;
     border-spacing: 0px
 }
 
 .content caption{
-    padding-top: 48px;
+    padding-top: 32px;
 }
 
 #td-title{
     background: #2c56af;
-    padding: 16px;
+    padding: 12px;
     color: #fff;
 }
 
@@ -174,6 +194,17 @@ nav{
     padding: 8px;
     overflow: hidden;
     background: #dddde2;
+}
+
+#limitarCeldaLogistica, #limitarCeldaDistribucion{
+    display: block;
+    display: flex;
+    align-items: center;
+    width: 59px;
+    height: 61px;
+    padding: 8px;
+    background: #dddde2;
+    overflow: hidden;
 }
 
 #campo{
@@ -196,17 +227,49 @@ nav{
     color: #fff;
 }
 
+
+/*
+==================================================
+                FORMULARIOS CSS
+==================================================
+*/
+
 .content form{
     margin: 48px 0px;
 }
 
-.content input{
+.content input[type=text], input[type=number]{
     display: block;
-    padding: 8px;
+    padding: 8px 0px;
     margin: 8px;
+    margin-bottom: 24px;
     width: 50%;
+    outline: none;
     /* border:none; */
     /* border-bottom: 1px solid #292828; */
+}
+
+.content input[type=radio]{
+    margin: 8px 16px;
+    margin-bottom: 24px;
+}
+
+form button{
+    display: block;
+    width: 50%;
+    height: 42px;
+    margin: 40px 8px;
+    border: none;
+    border-radius: 6px;
+    background: #2c56af;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+form button:hover{
+    background: #19191a;
+    transition: 1s;
 }
 
 

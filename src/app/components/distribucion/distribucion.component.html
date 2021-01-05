@@ -1,18 +1,4 @@
-
-<!-- <div class="content">
-    <p>distribucion works!</p>
-</div>
-
-
-<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
-show = {{show}}
-<br>
-
-<div *ngIf="show">Text to show</div> -->
-
 <div class="content">
-    
-    <p>Distribucion works!</p>
 
     <div class="card-box">
 
@@ -20,10 +6,10 @@ show = {{show}}
             <div class="card-text">
                 <p>Total<br>
                     Convencionales</p>
-                <h5>Num</h5>
+                <h5>{{ enviosConvencional }}</h5>
             </div>
             <div class="card-icon">
-                <i class='bx bx-package'></i>
+                <i class='bx bx-transfer-alt'></i>
             </div>
         </div>
 
@@ -31,10 +17,10 @@ show = {{show}}
             <div class="card-text">
                 <p>Total <br>
                     express</p>
-                <h5>Num</h5>
+                <h5>{{ enviosExpress }}</h5>
             </div>
             <div class="card-icon">
-                <i class='bx bx-package'></i>
+                <i class='bx bx-bolt-circle' undefined></i>
             </div>
         </div>
     
@@ -51,13 +37,26 @@ show = {{show}}
 
     </div>
 
-    <div class="graphic-content">
-
-
-    </div>
+    <!-- <div class="graphic-content">
+        <ngx-charts-bar-horizontal
+        [scheme]="colorScheme"
+        [results]="single"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)">
+      </ngx-charts-bar-horizontal>
+    </div> -->
 
     <table *ngIf="verDistribuciones">
-        <caption><h2>Rutas</h2></caption>
+        <caption><h2 class="title">Rutas</h2></caption>
         <tr>
             <td id="td-title"><strong>N°</strong></td>
             <td id="td-title"><strong>ID</strong></td>
@@ -74,7 +73,7 @@ show = {{show}}
     
         <tr *ngFor="let listDistribucion of listaDistribuciones;let i=index">
             <td id="campo">{{ i+1 }}</td>
-            <td id="campo" id="limitarCelda">{{ listDistribucion._id }}</td>
+            <td id="campo" id="limitarCeldaDistribucion">{{ listDistribucion._id }}</td>
             <td id="campo">{{ listDistribucion.codigoDistribucion }}</td>
             <td id="campo">{{ listDistribucion.nombreRemi }}</td>
             <td id="campo">{{ listDistribucion.nombreEmi }}</td>
@@ -91,9 +90,9 @@ show = {{show}}
     </table>
 
 
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="verForm"></router-outlet>
 
     <div class="crud-tools">
-        <a routerLink="FormDistribucion"><i class='bx bxs-message-square-add'></i></a>
+        <a routerLink="FormDistribucion"><i class='bx bxs-message-square-edit' (click)="verForm = !verForm"></i></a>
         <i class='bx bxs-file-find' (click)="verDistribuciones = !verDistribuciones"></i>
     </div>

@@ -32,15 +32,12 @@ export class AlmacenComponent implements OnInit{
   listaAlmacenes: any[] = [];
 
   verAlmacenes = false;
+  verForm = false;
 
   countContenedores: number;
 
   countDevoluciones: number;
 
-  pais = {
-    name: "Germany",
-    value: 8940000
-  };
 
   // singles: any[] = [
   //   {
@@ -58,12 +55,7 @@ export class AlmacenComponent implements OnInit{
   // ];
 
 
-  // single: any[] = this.singles;
   single: any[] = [];
-
-  multi: any[];
-
-  view: any[] = [600, 400];
 
   // options table
   showXAxis = true;
@@ -77,26 +69,10 @@ export class AlmacenComponent implements OnInit{
 
   colorScheme = 'nightLights';
 
-  // colorScheme = {
-  //   domain: ["#5AA454", "#A10A28", "#C7B42C", "#AAAAAA"]
-  // };
-
-  // constructor() {
-  //   //Object.assign(this, { single })
-  // }
 
   onSelect(event) {
     console.log(event);
   }
-
-
-
-
-
-
-
-
-
 
   constructor( private almacenService: AlmacenService,
                private contenedorService: ContenedorService,
@@ -109,7 +85,6 @@ export class AlmacenComponent implements OnInit{
 
     this.almacenService.getAlmacenesSinStock()
     .subscribe((resp): any => {
-      // console.log(resp);
       this.almacenes = resp;
     });
 
@@ -187,61 +162,6 @@ export class AlmacenComponent implements OnInit{
     });    
 
   }
-
-  // capturarID( obj:any ){
-  //   // console.log(i+1);
-  //   //console.log(almacen);
-  //   let idMongo = obj._id;
-  //   console.log(idMongo);
-  //   this.router.navigateByUrl('FormAlmacen');
-  // }
-
-
-    // ==============================> GRAFICAS
-  //   public barChartOptions: ChartOptions = {
-  //     responsive: true,
-  //     // We use these empty structures as placeholders for dynamic theming.
-  //     scales: { xAxes: [{}], yAxes: [{}] },
-  //     plugins: {
-  //       datalabels: {
-  //         anchor: 'end',
-  //         align: 'end',
-  //       }
-  //     }
-  //   };
-  //   public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  //   public barChartType: ChartType = 'bar';
-  //   public barChartLegend = true;
-  //   //public barChartPlugins = [pluginDataLabels];
-  
-  //   public barChartData: ChartDataSets[] = [
-  //     { data: [100, 59, 80, 81, 56, 55, 40], label: this.labelA },
-  //     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
-  //   ];
-
-  // // ==============================> GRAFICAS
-  // // events
-  // chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-  //   console.log(event, active);
-  // }
-
-  // chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-  //   console.log(event, active);
-  // }
-
-  // randomize(): void {
-  //   // Only Change 3 values
-  //   this.barChartData[0].data = [
-  //     Math.round(Math.random() * 100),
-  //     59,
-  //     80,
-  //     (Math.random() * 100),
-  //     56,
-  //     (Math.random() * 100),
-  //     40];
-  // }
-
-  // =============================================
 
   eliminarAlmacen(id:string){
     console.log(id);

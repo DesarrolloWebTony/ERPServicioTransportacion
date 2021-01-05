@@ -17,6 +17,7 @@ import { CrearalComponent } from './components/almacen/crearal/crearal.component
 import { MessageComponent } from './components/message/message.component';
 import { CrearloComponent } from './components/logistica/crearlo/crearlo.component';
 import { CreardiComponent } from './components/distribucion/creardi/creardi.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CreardiComponent } from './components/distribucion/creardi/creardi.comp
     CrearalComponent,
     MessageComponent,
     CrearloComponent,
-    CreardiComponent
+    CreardiComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

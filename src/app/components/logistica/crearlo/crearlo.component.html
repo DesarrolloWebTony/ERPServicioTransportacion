@@ -1,7 +1,7 @@
-<p>Crear nueva ruta</p>
+<p class="subtitle">Crear nueva ruta</p>
 <form (ngSubmit)="crearRuta(f)" #f="ngForm">
-    <!-- <label>ID</label>
-    <input type="text" name="id" [(ngModel)]="id" disabled>  -->
+    <label>ID</label>
+    <input type="text" name="id" [(ngModel)]="id" disabled> 
     <label>Codigo</label>
     <input type="text" name="codigoRuta" [(ngModel)]="logistica.codigoRuta" required>
     <label>Ruta</label>
@@ -17,7 +17,14 @@
     <label>Destino</label>
     <input type="text" name="destino" [(ngModel)]="logistica.destino" required>
     <label>Entregado</label>
-    <input type="text" name="entregado" [(ngModel)]="logistica.entregado" required>
+
+    <div class="express-box">
+        <input type="radio" name="entregado" id="si" value="true" [(ngModel)]="logistica.entregado" required>
+        <label for="si">SI</label>
+        <input type="radio" name="entregado" id="no" value="false" [(ngModel)]="logistica.entregado" required>
+        <label for="no">NO</label>
+    </div>
+    <!-- <input type="text" name="entregado" [(ngModel)]="logistica.entregado" required> -->
 
     <button type="submit">Crear</button>
 </form>

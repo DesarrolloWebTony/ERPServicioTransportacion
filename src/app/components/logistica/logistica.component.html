@@ -1,6 +1,5 @@
 <div class="content">
     
-    <p>logistica works!</p>
     <div class="card-box">
 
         <div class="card-details">
@@ -10,7 +9,7 @@
                 <h5>{{hechos.length}}</h5>
             </div>
             <div class="card-icon">
-                <i class='bx bx-package'></i>
+                <i class='bx bx-home-smile'></i>
             </div>
         </div>
 
@@ -21,7 +20,7 @@
                 <h5>{{ enRuta.length }}</h5>
             </div>
             <div class="card-icon">
-                <i class='bx bx-package'></i>
+                <i class='bx bx-trip' ></i>
             </div>
         </div>
     
@@ -38,11 +37,10 @@
 
     </div>
 
-    <h2>Viajes por destino</h2>
+    <h2 class="title">Viajes por destino</h2>
 
     <div class="graphic-content">
         <ngx-charts-pie-chart
-            [view]="view"
             [scheme]="colorScheme"
             [results]="single"
             [gradient]="gradient"
@@ -56,9 +54,10 @@
             >
         </ngx-charts-pie-chart>
     </div>
+    <br>
 
       <table *ngIf="verRutas">
-        <caption><h2>Rutas</h2></caption>
+        <caption><h2 class="title">Rutas</h2></caption>
         <tr>
             <td id="td-title"><strong>N°</strong></td>
             <td id="td-title"><strong>ID</strong></td>
@@ -75,7 +74,7 @@
     
         <tr *ngFor="let listRuta of listaRutas;let i=index">
             <td id="campo">{{ i+1 }}</td>
-            <td id="campo" id="limitarCelda">{{ listRuta._id }}</td>
+            <td id="campo" id="limitarCeldaLogistica">{{ listRuta._id }}</td>
             <td id="campo">{{ listRuta.codigoRuta }}</td>
             <td id="campo">{{ listRuta.ruta }}</td>
             <td id="campo">{{ listRuta.tipoVehiculo }}</td>
@@ -91,10 +90,10 @@
         </tr>
     </table>
     
-    <router-outlet></router-outlet>
+    <router-outlet *ngIf="verForm"></router-outlet>
     
     <div class="crud-tools">
-        <a routerLink="FormLogistica"><i class='bx bxs-message-square-add'></i></a>
+        <a routerLink="FormLogistica"><i class='bx bxs-message-square-edit' (click)="verForm = !verForm"></i></a>
         <i class='bx bxs-file-find' (click)="verRutas = !verRutas"></i>
     </div>
 

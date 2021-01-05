@@ -28,6 +28,13 @@ export class DistribucionService {
     }));
   }
 
+  getTiposEntrega(){
+    return this.http.get('http://localhost:3000/tiposEntrega')
+      .pipe(map( resp=>{
+          return resp['tipos'];
+      }));
+  }
+
   editarDistribucion(id:string, data){
     return this.http.put(`http://localhost:3000/distribucion/${id}`, data);
   }

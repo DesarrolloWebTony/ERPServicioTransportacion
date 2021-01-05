@@ -17,6 +17,7 @@ export class LogisticaComponent implements OnInit {
   listaRutas: any[] = [];
 
   verRutas: boolean = false;
+  verForm: boolean = false;
 
   enRuta: any[] = [];
   
@@ -45,8 +46,7 @@ export class LogisticaComponent implements OnInit {
     // }
   ];
     
-  view: any[] = [700, 400];
-
+  
   // options
   gradient: boolean = false;
   showLegend: boolean = true;
@@ -112,11 +112,19 @@ export class LogisticaComponent implements OnInit {
           {
             name: this.destinosName[2],
             value: this.destinosCount[2]
+          },
+          {
+            name: this.destinosName[3],
+            value: this.destinosCount[3]
+          },
+          {
+            name: this.destinosName[4],
+            value: this.destinosCount[4]
+          },
+          {
+            name: this.destinosName[5],
+            value: this.destinosCount[5]
           }
-          // {
-          //   name: this.nuevoArrayProductos[3],
-          //   value: this.nuevoArrayCantidaProd[3]
-          // }
         ];
 
     });

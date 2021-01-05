@@ -1,5 +1,6 @@
 import { RouterModule, Routes} from '@angular/router';
 
+import { HomeComponent } from './components/home/home.component';
 import { AlmacenComponent } from './components/almacen/almacen.component';
 import { CrearalComponent } from './components/almacen/crearal/crearal.component'
 import { LogisticaComponent } from './components/logistica/logistica.component';
@@ -22,6 +23,7 @@ const APP_ROUTES:Routes = [
         { path:'FormDistribucion/:id', component: CreardiComponent },
     ]},
     { path:'Mensaje', component: MessageComponent},
+    { path:'Home', component: HomeComponent},
     { path:'**', pathMatch:'full', redirectTo:'Almacen'}
 ]
 
