@@ -24,7 +24,7 @@
             </div>
         </div>
     
-        <div class="card-details">
+        <!-- <div class="card-details">
             <div class="card-text">
                 <p>Categoria <br>
                     top</p>
@@ -33,7 +33,7 @@
             <div class="card-icon">
                 <i class='bx bx-package'></i>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
@@ -58,22 +58,22 @@
     <table *ngIf="verDistribuciones">
         <caption><h2 class="title">Rutas</h2></caption>
         <tr>
-            <td id="td-title"><strong>N°</strong></td>
-            <td id="td-title"><strong>ID</strong></td>
+            <!-- <td id="td-title"><strong>N°</strong></td>
+            <td id="td-title"><strong>ID</strong></td> -->
             <td id="td-title"><strong>Codigo</strong></td>
-            <td id="td-title"><strong>nombreRemi</strong></td>
-            <td id="td-title"><strong>nombreEmi</strong></td>
-            <td id="td-title"><strong>fechaEncargo</strong></td>
-            <td id="td-title"><strong>fechaSalida</strong></td>
-            <td id="td-title"><strong>numArticulos</strong></td>
+            <td id="td-title"><strong>Remitente</strong></td>
+            <td id="td-title"><strong>Emisor</strong></td>
+            <td id="td-title"><strong>Encargo</strong></td>
+            <td id="td-title"><strong>Salida</strong></td>
+            <td id="td-title"><strong>Articulos</strong></td>
             <td id="td-title"><strong>Express</strong></td>
             <td id="td-title"><strong>Estado</strong></td>
             <td id="td-title"><strong>Controls</strong></td>
         </tr>
     
         <tr *ngFor="let listDistribucion of listaDistribuciones;let i=index">
-            <td id="campo">{{ i+1 }}</td>
-            <td id="campo" id="limitarCeldaDistribucion">{{ listDistribucion._id }}</td>
+            <!-- <td id="campo">{{ i+1 }}</td> -->
+            <td id="campo" id="limitarCeldaDistribucion" style="display: none;">{{ listDistribucion._id }}</td>
             <td id="campo">{{ listDistribucion.codigoDistribucion }}</td>
             <td id="campo">{{ listDistribucion.nombreRemi }}</td>
             <td id="campo">{{ listDistribucion.nombreEmi }}</td>

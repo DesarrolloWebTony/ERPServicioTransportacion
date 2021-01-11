@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { AlmacenService } from '../../services/almacen.service';
 import { ContenedorService } from '../../services/contenedor.service';
 import { DevolucionService } from '../../services/devolucion.service';
+import { ProveedorService } from '../../services/proveedor.service';
+
+import { Solicitud } from '../../models/proveedor.model';
 
 // Librerias
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
@@ -20,6 +24,8 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
   ]
 })
 export class AlmacenComponent implements OnInit{
+
+  solicitud: Solicitud;
 
   almacenes: any[] = [];
 
@@ -40,6 +46,8 @@ export class AlmacenComponent implements OnInit{
 
   countDevoluciones: number;
 
+  verCapa = "1";
+  verFormEmergente: boolean = false;
 
   // singles: any[] = [
   //   {
@@ -89,11 +97,14 @@ export class AlmacenComponent implements OnInit{
   constructor( private almacenService: AlmacenService,
                private contenedorService: ContenedorService,
                private devolucionService : DevolucionService,
+               private ProveedorService : ProveedorService,
                private router : Router ) {
 
   }
 
   ngOnInit() {
+
+    this.solicitud = new Solicitud();
 
     this.almacenService.getAlmacenesSinStock()
     .subscribe((resp): any => {
@@ -222,5 +233,59 @@ export class AlmacenComponent implements OnInit{
             console.log(resp);
         });
   }
+
+  solicitar(id:string){
+    console.log('desde solicitar');
+    this.verCapa = ".2"
+    this.verFormEmergente = !this.verFormEmergente;
+    console.log(id);
+
+    this.almacenService.getAlmacen(id)
+        .subscribe((resp)=>{
+          console.log(resp);
+          this.solicitud.nombreProduct = resp.nombreProd;
+          this.solicitud.proveedor = resp.proveedor;
+        });
+    // return {'capa' : false}
+  }
+
+  crearSolicitud( form: NgForm ){
+
+    if(form.invalid){
+      return;
+    }
+
+    // if(this.id){
+    //   console.log('listo para actualizar');
+
+    //   this.almacenService.editarAlmacen(this.id, this.almacen)
+    //       .subscribe((resp)=>{
+    //         console.log('actualizar resp');
+    //         console.log(resp);
+    //       });
+    // }
+
+    // else{
+    //   const almacenData = {
+    //     ...this.almacen
+    //   }
+  
+    console.log(this.solicitud);
+
+      this.ProveedorService.crearSolicitud( this.solicitud )
+          .subscribe(( resp ) => {
+              console.log( resp );
+          }, (err) => {
+              console.log( err.error.err.errors );
+          });
+    
+      console.log('Formulario enviado');
+      this.verFormEmergente = !this.verFormEmergente;
+
+      // this.router.navigateByUrl('Mensaje');
+    
+  }
+
+
 
 }

@@ -59,22 +59,22 @@
       <table *ngIf="verRutas">
         <caption><h2 class="title">Rutas</h2></caption>
         <tr>
-            <td id="td-title"><strong>N°</strong></td>
-            <td id="td-title"><strong>ID</strong></td>
+            <!-- <td id="td-title"><strong>N°</strong></td>
+            <td id="td-title"><strong>ID</strong></td> -->
             <td id="td-title"><strong>Codigo</strong></td>
             <td id="td-title"><strong>Ruta</strong></td>
             <td id="td-title"><strong>Vehiculo</strong></td>
             <td id="td-title"><strong>Articulos</strong></td>
-            <td id="td-title"><strong>Estimado</strong></td>
+            <td id="td-title"><strong>Dias</strong></td>
             <td id="td-title"><strong>Salida</strong></td>
             <td id="td-title"><strong>Destino</strong></td>
-            <td id="td-title"><strong>Entregado</strong></td>
+            <td id="td-title"><strong>Entrega</strong></td>
             <td id="td-title"><strong>Controls</strong></td>
         </tr>
     
         <tr *ngFor="let listRuta of listaRutas;let i=index">
-            <td id="campo">{{ i+1 }}</td>
-            <td id="campo" id="limitarCeldaLogistica">{{ listRuta._id }}</td>
+            <!-- <td id="campo">{{ i+1 }}</td> -->
+            <td id="campo" id="limitarCeldaLogistica" style="display: none;">{{ listRuta._id }}</td>
             <td id="campo">{{ listRuta.codigoRuta }}</td>
             <td id="campo">{{ listRuta.ruta }}</td>
             <td id="campo">{{ listRuta.tipoVehiculo }}</td>
